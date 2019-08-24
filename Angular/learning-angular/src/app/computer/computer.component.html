@@ -2,13 +2,16 @@
 <p>Buy now our best computers!</p>
 
 <h5>Add a computer</h5>
-<input type="text" [(ngModel)]="favoriteBranch"><br><br>
+<!-- <input type="text" [(ngModel)]="favoriteBranch" (blur)="onBlur()"><br><br> -->
+<input type="text" [(ngModel)]="favoriteBranch" (keyup.enter)="showWord()"><br><br>
 <button (click)="getFavoriteBranch()">Show favorite branch</button><br><br>
 <button (click)="addBranch()">Add your favorite branch</button><br><br>
 <strong>{{ favoriteBranch }}</strong>
 
 <ul>
-    <li *ngFor = "let branch of branches; let i = index">{{ (i + 1) + ' ' + branch }}</li>
+    <li *ngFor = "let branch of branches; let i = index">{{ (i + 1) + ' ' + branch }}
+        <button (click)="deleteBranch()">Delete</button>
+    </li>
 </ul>   
 
 <ul>
@@ -30,6 +33,7 @@
 </ul>
 
 <p>All our computers have</p>
+<input type="text" [(ngModel)]="hd">
 <ul [ngSwitch] = 'hd'>
     <li *ngSwitchCase = "500">
         <span [ngStyle] = "{'background' : 'green', 'color' : 'white'}">500gb HD</span>

@@ -46,4 +46,16 @@ export class ComputerComponent implements OnInit {
    addBranch () {
      this.branches.push(this.favoriteBranch);
    }
+
+   deleteBranch() {
+    this.branches.pop();
+   }
+
+   onBlur() {
+     console.log('You are out of the input');
+   }
+
+   showWord() {
+     alert(this.favoriteBranch);
+   }
 }
