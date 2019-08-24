@@ -33,6 +33,12 @@ ngStyle
 ngSwith
 [(ngModel)] = "favoriteBranch"
 
+[ngClass] = "['red-background', 'underlined']"
+[ngClass] = "{
+              'red-background': computer.price > 500,
+              'underlined': computer.branch == 'HP'
+            }"
+
 -->
 
 

@@ -21,12 +21,21 @@
             'text-decoration': computer.inStock === false ? 'line-through' : none
         }">
         {{ computer.branch }} : {{ computer.ram }} {{ computer.microprocessor }} {{ computer.inches }}'' - 
-            <strong>{{ computer.price }}€ </strong>
+            <strong
+                [class.high-price] = "computer.price >= 600"
+                [ngClass] = "{
+                    'red-background': computer.price > 500,
+                    'underlined': computer.branch == 'HP'
+                }"
+                >
+                {{ computer.price }}€
+            </strong>
         </span>
 
         <span *ngIf = "computer.price <= 600"
             [style.background] = "computer.price <= 600 ? 'green' : transparent"
-            [style.color] = "computer.price <= 600 ? 'white' : transparent">
+            [style.color] = "computer.price <= 600 ? 'white' : transparent"
+            >
             Offer!
         </span>
     </li>
