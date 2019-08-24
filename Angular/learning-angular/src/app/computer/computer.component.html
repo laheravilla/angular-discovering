@@ -1,0 +1,43 @@
+<h2>{{ title }}</h2>
+<p>Buy now our best computers!</p>
+
+<h5>Add a computer</h5>
+<input type="text" [(ngModel)]="favoriteBranch"><br><br>
+<button (click)="getFavoriteBranch()">Show favorite branch</button><br><br>
+<button (click)="addBranch()">Add your favorite branch</button><br><br>
+<strong>{{ favoriteBranch }}</strong>
+
+<ul>
+    <li *ngFor = "let branch of branches; let i = index">{{ (i + 1) + ' ' + branch }}</li>
+</ul>   
+
+<ul>
+    <li *ngFor = "let computer of
+     computers">
+        <span [ngStyle] = "{
+            'text-decoration': computer.inStock === false ? 'line-through' : none
+        }">
+        {{ computer.branch }} : {{ computer.ram }} {{ computer.microprocessor }} {{ computer.inches }}'' - 
+            <strong>{{ computer.price }}€ </strong>
+        </span>
+
+        <span *ngIf = "computer.price <= 600"
+            [style.background] = "computer.price <= 600 ? 'green' : transparent"
+            [style.color] = "computer.price <= 600 ? 'white' : transparent">
+            Offer!
+        </span>
+    </li>
+</ul>
+
+<p>All our computers have</p>
+<ul [ngSwitch] = 'hd'>
+    <li *ngSwitchCase = "500">
+        <span [ngStyle] = "{'background' : 'green', 'color' : 'white'}">500gb HD</span>
+    </li>
+    <li *ngSwitchCase = "750">
+        <span [ngStyle] = "{'background' : 'yellow', 'color' : 'black'}">750gb HD</span>
+    </li>
+    <li *ngSwitchCase = "1000">
+        <span [ngStyle] = "{'background' : 'blue', 'color' : 'white'}">1tb HD</span>
+    </li>
+</ul>
