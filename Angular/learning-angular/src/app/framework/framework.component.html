@@ -5,4 +5,7 @@
     <li>Angular</li>
     <li>Laravel</li>
     <li>Zend</li>
+    <li *ngIf="name"><strong>{{ name }} : {{ version }}</strong></li> <!--Solo se mostrara si tiene algun valor-->
 </ul>
+
+<button (click)="redirectMe()">Take me to Programming Languages</button>

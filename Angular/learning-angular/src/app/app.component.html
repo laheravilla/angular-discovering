@@ -11,12 +11,13 @@
 </div>
 
 <nav>
-    <a [routerLink] = "['/']">Home</a>
-    <a [routerLink] = "['/computer']">Computer</a>
-    <a [routerLink] = "['/framework']">Framework</a>
-    <a [routerLink] = "['/programming_language']">Programming Languages</a>
-    <a [routerLink] = "['/videogame']">Videogame</a>
+    <a [routerLink] = "['/home']" [routerLinkActive]="['active']">Home</a>
+    <a [routerLink] = "['/computer']" [routerLinkActive]="['active']">Computer</a>
+    <a [routerLink] = "['/framework']" [routerLinkActive]="['active']">Framework</a>
+    <a [routerLink] = "['/programming_language']" [routerLinkActive]="['active']">Programming Languages</a>
+    <a [routerLink] = "['/videogame']" [routerLinkActive]="['active']">Videogame</a>
 </nav>
+<hr>
 
 <!--LOS COMPONENTES PUEDEN ESTAR COLOCADOS EN CUANLQUIER .COMPONENT.HTML-->
 <!--
@@ -40,13 +41,14 @@ ngStyle
 *ngFor = "let computer of computers"
 ngSwith
 [(ngModel)] = "favoriteBranch"
-[routerLink] = "[]" -> = <a href="">
 
 [ngClass] = "['red-background', 'underlined']"
 [ngClass] = "{
               'red-background': computer.price > 500,
               'underlined': computer.branch == 'HP'
             }"
+[routerLinkActive]="['active']"
+[routerLink] = "[]" -> = <a href="">
 
 -->
 

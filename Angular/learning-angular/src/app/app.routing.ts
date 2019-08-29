@@ -14,10 +14,12 @@ import { FrameworkComponent } from './framework/framework.component';
 // Array of routes
 const appRoutes: Routes = [
     {path: '', component: HomeComponent}, // Home route
+    {path: 'home', component: HomeComponent}, // Ruta alternativa
     {path: 'computer', component: ComputerComponent},
     {path: 'videogame', component: VideogameComponent},
     {path: 'programming-language', component: ProgrammingLanguageComponent},
     {path: 'framework', component: FrameworkComponent},
+    {path: 'framework/:name/:version', component: FrameworkComponent}, // Con parametros
     {path: '**', component: HomeComponent}, // Mandatory 404 route at the end!! If component doesn't exist, load Home
 ];
 

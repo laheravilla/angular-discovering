@@ -1,1 +1,15 @@
-<p>home works!</p>
+<h2>Main Page</h2>
+
+<div *ngIf="identificated; then isIdentificated else nonIdentificated"> <!--THEN llama la plantilla #isIdentificated y ELSE #nonIdentificated-->
+</div>
+
+<ng-template #isIdentificated>
+    <p>You are identificated!</p>
+    <button (click)="logout()">Log out</button>
+</ng-template>
+
+<ng-template #nonIdentificated>
+    <p>You are not identicated</p>
+    <p>Click on this button to log in!</p>
+    <button (click)="getIdenticated()">Log in!</button>
+</ng-template>

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Computer } from '../models/computer';
+import { ComputerService } from '../services/computer.service'; // Importo servicio
 
 @Component({
   selector: 'app-computer',
   templateUrl: './computer.component.html',
-  styleUrls: ['./computer.component.css']
+  styleUrls: ['./computer.component.css'],
+  providers: [ComputerService] // Injecto el servicio como provider
 })
 export class ComputerComponent implements OnInit {
   public title: string = 'Computer Component';
@@ -13,21 +15,17 @@ export class ComputerComponent implements OnInit {
   public hd: number;
   public favoriteBranch: string;
 
-  constructor() {
+  constructor(
+    private _computerService: ComputerService // Servicio injectado. Underscore al inicio es buena practica
+  ) {
     this.hd = 750;
     this.branches = new Array();
-    this.computers = [
-      new Computer('Asus', false, 790, 17, 'i5', '8gb', true),
-      new Computer('Dell', true, 990, 15, 'i7', '16gb', false),
-      new Computer('HP', false, 590, 17, 'i3', '4gb', false),
-      new Computer('HP', true, 790, 17, 'i5', '8gb', false),
-      new Computer('Dell', false, 450, 17, 'i3', '2gb', true),
-    ];
   }
 
   ngOnInit() {
-    console.log(this.computers);
+    this.computers = this._computerService.getComputers(); // Inicializo servicio
     this.getBranches();
+    alert(this._computerService.getText());
    }
 
    getBranches () {
