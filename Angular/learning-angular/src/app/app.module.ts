@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Importar para los forms
 import { routing, appRoutingProviders } from './app.routing'; // Import my routes
 import { HttpClientModule } from '@angular/common/http'; // Para trabajar con AJAX
+import { CalculatricePipe } from './pipes/calculatrice.pipe'; // Pipe
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ import { ExternalComponent } from './external/external.component';
     FrameworkComponent,
     ComputerComponent,
     HomeComponent,
-    ExternalComponent
+    ExternalComponent,
+    CalculatricePipe, // Pipe
   ],
   imports: [
     BrowserModule,
