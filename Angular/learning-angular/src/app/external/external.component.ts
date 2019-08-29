@@ -24,6 +24,7 @@ export class ExternalComponent implements OnInit {
   }
 
   loadUser() {
+    this.user = false;
     this._requestsService.getUser(this.userId).subscribe(
       result => {
         this.user = result.data;

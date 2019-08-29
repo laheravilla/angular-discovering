@@ -1,4 +1,7 @@
 <input type="text" [(ngModel)] = "userId" (keyup.enter) = "loadUser()">
+<div *ngIf = "!user">
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="">
+</div>
 <div *ngIf = "user">
     <img src="{{ user.avatar }}" alt="" width="100">
     <h2>{{ user.first_name + ' ' + user.last_name}}</h2>
