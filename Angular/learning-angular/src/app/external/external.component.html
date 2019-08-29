@@ -1,3 +1,7 @@
+<!--Angular Pipes in https://angular.io/guide/pipes-->
+{{ date | date:'fullDate' | uppercase }}<br/> <!--Output: THURSDAY, AUGUST 29, 2019-->
+{{ date | date:'dd/MM/yy'}} <!--Output: Thursday, 29/08/19-->
+<hr>
 <input type="text" [(ngModel)] = "userId" (keyup.enter) = "loadUser()">
 <div *ngIf = "!user">
     <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="">

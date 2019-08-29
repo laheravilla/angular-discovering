@@ -13,6 +13,8 @@ export class ExternalComponent implements OnInit {
 
   public userId: number;
 
+  public date: any;
+
   constructor(
     private _requestsService: RequestsService,
   ) {
@@ -20,6 +22,7 @@ export class ExternalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.date = new Date();
     this.loadUser();
   }
 
