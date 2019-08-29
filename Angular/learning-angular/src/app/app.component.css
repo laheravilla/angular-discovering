@@ -4,3 +4,6 @@
     margin: 1%;
     padding: 1.5%;
 }
+
+nav { text-align: center; }
+nav a { margin: auto 10px; }
