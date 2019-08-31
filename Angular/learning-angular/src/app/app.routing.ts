@@ -11,6 +11,7 @@ import { VideogameComponent } from './videogame/videogame.component';
 import { ProgrammingLanguageComponent } from './programming_language/programming_language.component';
 import { FrameworkComponent } from './framework/framework.component';
 import { ExternalComponent } from './external/external.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 // Array of routes
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     {path: 'programming-language', component: ProgrammingLanguageComponent},
     {path: 'framework', component: FrameworkComponent},
     {path: 'framework/:name/:version', component: FrameworkComponent}, // Con parametros
+    {path: 'contact-form', component: ContactFormComponent},
     {path: 'external', component: ExternalComponent},
     {path: '**', component: HomeComponent}, // Mandatory 404 route at the end!! If component doesn't exist, load Home
 ];

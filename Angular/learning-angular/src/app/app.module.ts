@@ -15,6 +15,7 @@ import { FrameworkComponent } from './framework/framework.component';
 import { ComputerComponent } from './computer/computer.component';
 import { HomeComponent } from './home/home.component';
 import { ExternalComponent } from './external/external.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ExternalComponent } from './external/external.component';
     ComputerComponent,
     HomeComponent,
     ExternalComponent,
-    CalculatricePipe, // Pipe
+    CalculatricePipe,
+    ContactFormComponent, // Pipe
   ],
   imports: [
     BrowserModule,

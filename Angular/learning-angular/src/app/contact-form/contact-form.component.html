@@ -1,0 +1,22 @@
+<h2>Contact us</h2>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit()"> <!--Convertir en un form de Angular-->
+
+    <label for="firstname">Firstname:</label><br>
+    <input type="text" name='firstname' placeholder="John" 
+    #firstname="ngModel" [(ngModel)]="contactUser.firstname"><br><br> <!--Convertir en input de Angular-->
+
+    <label for="lastname">Lastname:</label><br>
+    <input type="text" name='lastname' placeholder="Doe"
+    #lastname="ngModel" [(ngModel)]="contactUser.lastname"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="text" name='email' placeholder="john.doe@domain.com"
+    #email="ngModel" [(ngModel)]="contactUser.email"><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea type="text" name='message' placeholder="Tour text here..."
+    #message="ngModel" [(ngModel)]="contactUser.message"></textarea><br>
+
+    <button>Submit</button><br><br>
+</form>
