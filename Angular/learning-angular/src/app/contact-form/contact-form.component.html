@@ -3,20 +3,28 @@
 <form #contactForm="ngForm" (ngSubmit)="onSubmit()"> <!--Convertir en un form de Angular-->
 
     <label for="firstname">Firstname:</label><br>
-    <input type="text" name='firstname' placeholder="John" 
-    #firstname="ngModel" [(ngModel)]="contactUser.firstname"><br><br> <!--Convertir en input de Angular-->
+    <input type="text" name='firstname' placeholder="John" required pattern="[a-zA-Z]+"
+    #firstname="ngModel" [(ngModel)]="contactUser.firstname"><br>
+    <span style="color:red;" *ngIf="firstname.touched && !firstname.valid">Firstname is mandatory</span>
+    <br> <!--Convertir en input de Angular-->
 
     <label for="lastname">Lastname:</label><br>
-    <input type="text" name='lastname' placeholder="Doe"
-    #lastname="ngModel" [(ngModel)]="contactUser.lastname"><br><br>
+    <input type="text" name='lastname' placeholder="Doe" required pattern="[a-zA-Z]+"
+    #lastname="ngModel" [(ngModel)]="contactUser.lastname"><br>
+    <span style="color:red;" *ngIf="lastname.touched && !lastname.valid">Lastname is mandatory</span>
+    <br>
 
     <label for="email">Email:</label><br>
-    <input type="text" name='email' placeholder="john.doe@domain.com"
-    #email="ngModel" [(ngModel)]="contactUser.email"><br><br>
+    <input type="email" name='email' placeholder="john.doe@domain.com" required
+    #email="ngModel" [(ngModel)]="contactUser.email"><br>
+    <span style="color:red;" *ngIf="email.touched && !email.valid">Email is mandatory</span>
+    <br>
 
     <label for="message">Message:</label><br>
-    <textarea type="text" name='message' placeholder="Tour text here..."
+    <textarea type="text" name='message' placeholder="Tour text here..." required
     #message="ngModel" [(ngModel)]="contactUser.message"></textarea><br>
+    <span style="color:red;" *ngIf="message.touched && !message.valid">Message is mandatory</span>
+    <br>
 
-    <button>Submit</button><br><br>
+    <button [disabled]="!contactForm.form.valid">Submit</button><br> <!--Boton desactivado mientras hay errores-->
 </form>
