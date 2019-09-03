@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '../services/requests.service';
+import { Response } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-external',
@@ -15,10 +16,15 @@ export class ExternalComponent implements OnInit {
 
   public date: any;
 
+  public newUser: any;
+
+  public registeredUser: any;
+
   constructor(
     private _requestsService: RequestsService,
   ) {
     this.userId = 1;
+    this.newUser = {"name": "", "job": ""};
   }
 
   ngOnInit() {
@@ -36,5 +42,18 @@ export class ExternalComponent implements OnInit {
         console.log(<any>error);
       }
     )
+  }
+
+  onSubmit(form) {
+    this._requestsService.addUser(this.newUser).subscribe(
+      response => {
+        this.registeredUser = response;
+        console.log(response);
+        form.reset();
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
   }
 }

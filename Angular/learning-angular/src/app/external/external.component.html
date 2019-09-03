@@ -1,3 +1,32 @@
+<h2>Create an user</h2>
+
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+
+    <label for="name">Name:</label><br>
+    <input type="text" name='name' placeholder="John" required pattern="[a-zA-Z]+"
+    #name="ngModel" [(ngModel)]="newUser.name"><br>
+    <span style="color:red;" *ngIf="name.touched && !name.valid">Name is mandatory</span>
+    <br> <!--Convertir en input de Angular-->
+
+    <label for="job">Job:</label><br>
+    <input type="text" name='job' placeholder="Developer" required pattern="[a-zA-Z]+"
+    #job="ngModel" [(ngModel)]="newUser.job"><br>
+    <span style="color:red;" *ngIf="job.touched && !job.valid">Job is mandatory</span>
+    <br>
+
+    <button [disabled]="!newUser.form.valid">Create</button><br> <!--Boton desactivado mientras hay errores-->
+</form>
+
+<div *ngIf="registeredUser">
+    <h3>{{ registeredUser.name }}</h3><br>
+    <h4>{{ registeredUser.job }}</h4><br>
+    <small>ID: {{ registeredUser.id }}</small><br>
+    <small>Creation date: {{ registeredUser.createdAt | date:'dd/MM/yy' }}</small>
+</div>
+
+
+<hr>
+
 <!--Angular Pipes in https://angular.io/guide/pipes-->
 {{ date | date:'fullDate' | uppercase }}<br/> <!--Output: THURSDAY, AUGUST 29, 2019-->
 {{ date | date:'dd/MM/yy'}} <br/> <!--Output: Thursday, 29/08/19-->
@@ -13,3 +42,5 @@
     <h2>{{ user.first_name + ' ' + user.last_name}}</h2>
     <p>{{ user.email }}</p>
 </div>
+
+
